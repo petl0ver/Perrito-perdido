@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perrito Perdido</title>
+</head>
+<body>
+  <h1>¡He encontrado a Lupita!</h1>
+  <p>Tu ubicación será enviada al dueño para ayudar a reunirlos.</p>
+  <script>
+    // Pedir ubicación al usuario
+navigator.geolocation.getCurrentPosition(position => {
+  // Si se obtiene la ubicación, extrae las coordinadas
+      const { latitude, longitude } = position.coords;
+      const message = `¡Alguien encontró a tu perrito! Ubicación: https://www.google.com/maps?q=${latitude},${longitude}`;
+      // Redirige para enviar el mensaje por WhatsApp
+      window.location.href = `https://wa.me/56934413690?text=${encodeURIComponent(message)}`;
+    }, error => {
+      // Mostrar mensaje si falla obtener la ubicación
+      alert("No se pudo obtener la ubicación. Por favor, habilita la ubicación en tu dispositivo.");}
+);
+  </script>
+ </body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
